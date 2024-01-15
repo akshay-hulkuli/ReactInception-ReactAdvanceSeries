@@ -1,0 +1,23 @@
+{
+  "name": "reactinception-reactadvanceseries",
+  "version": "1.0.0",
+  "description": "this is react advanced from inception",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akshay-hulkuli/ReactInception-ReactAdvanceSeries.git"
+  },
+  "keywords": [],
+  "author": "akshay hulkuli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akshay-hulkuli/ReactInception-ReactAdvanceSeries/issues"
+  },
+  "homepage": "https://github.com/akshay-hulkuli/ReactInception-ReactAdvanceSeries#readme",
+  "devDependencies": {
+    "parcel": "^2.11.0"
+  }
+}
