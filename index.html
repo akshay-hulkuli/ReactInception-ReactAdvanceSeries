@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My demo html page</title>
+</head>
+<body>
+    <div id="root">
+    </div>
+    <!-- 
+        We could have injected simple header into html using javascript with this code
+        <script>
+        const header = document.createElement("h1");
+        header.innerHTML = "Hello World from the javascript"
+
+        const root = document.getElementById("root");
+        root.appendChild(header);
+        </script> 
+    -->
+
+    
+    <!-- Now let us see how we can create and inject header using react -->
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</body>
+</html>
