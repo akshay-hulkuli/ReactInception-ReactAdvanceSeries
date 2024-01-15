@@ -26,12 +26,17 @@
     <!-- Now let us see how we can create and inject header using react -->
 
     <!-- This file contains core react logics -->
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <!-- <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script> -->
     <!-- 
         This file contains the code responsible for dom manipulation from react.
         This is needed for browsers where we need to play with dom. (Incase of react native we migth have a different file)
     -->
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <!-- <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script> -->
+    <!-- 
+        It is not recommended to use CDN script calls to get react, as it is a costly operation including network call.
+        We can easily store required react scripts in the node modules by installing it using npm.
+        And also version management is challenging if we use CDN.
+    -->
 
     <!-- 
         <script>
@@ -40,6 +45,6 @@
             root.render(header);
         </script>
     -->
-    <script src="App.js"></script>
+    <script type="module" src="App.js"></script>
 </body>
 </html>
