@@ -1,3 +1,86 @@
-#heading {
-    color: chartreuse;
+.header {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid black;
+}
+.logo {
+    width: 90px;
+    height: 90px;
+    padding: 0 20px;
+}
+
+.nav-container {
+    padding: 0 20px;
+}
+
+.nav-container > ul {
+    font-size: 18px;
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-container > ul > li {
+    padding: 10px;
+    margin: 7px 10px;
+}
+
+.search {
+    padding: 20px;
+}
+
+.res-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.res-card {
+    width: 260px;
+    margin: 20px 20px;
+    height: 380px;
+    border: 0.5px solid #a7a7a7;
+    border-radius: 16px;
+    box-shadow: 8px 8px 8px #d7d7d7;
+}
+
+.res-card:hover {
+    box-shadow: 8px 8px 8px #a7a7a7;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.res-logo {
+    width: inherit;
+    height: 240px;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+.res-header {
+    padding: 10px;
+    margin: 0;
+}
+
+.res-data {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80px;
+}
+
+.res-cuisine {
+    padding: 0 10px;
+    margin: 0;
+}
+
+.res-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    height: 30px;
+}
+
+.res-details > h4 {
+    padding: 10px 0px;
+    margin: 0;
 }
