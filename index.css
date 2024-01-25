@@ -26,6 +26,13 @@
 
 .search {
     padding: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+.filter-btn {
+    margin: 0px 30px;
+    cursor: pointer;
 }
 
 .res-container {
