@@ -91,3 +91,27 @@
     padding: 10px 0px;
     margin: 0;
 }
+
+.shimmer-container {
+    display: flex;
+    margin: 60px 0px;
+    flex-wrap: wrap;
+}
+
+.shimer-card {
+    width: 260px;
+    margin: 20px 20px;
+    height: 380px;
+    background: linear-gradient(-45deg, #eee 40%, #fafafa 50%, #eee 60%);
+    background-size: 300%;
+    background-position-x: 100%;
+    animation: shimmer 0.8s infinite linear;
+    border: 0.2px solid #a7a7a7;
+    border-radius: 16px;
+}
+
+@keyframes shimmer {
+    to {
+       background-position-x: 0%
+    }
+ }
