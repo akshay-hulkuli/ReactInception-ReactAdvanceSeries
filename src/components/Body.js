@@ -21,7 +21,10 @@ const Body = () => {
     With this React does efficient DOM manipulation, Hence faster UI.
   */
   const [restaurantData, setRestaurantData] = useState([])
-
+  const [restaurandDataUnderDisplay, setRestaurandDataUnderDisplay] = useState(
+    []
+  )
+  const [searchText, setSearchText] = useState('')
   useEffect(() => {
     fetchData()
   }, [])
@@ -48,31 +51,50 @@ const Body = () => {
     )?.card?.card?.gridElements?.infoWithStyle?.restaurants
     if (requiredSwiggyCard && requiredSwiggyCard?.length > 0) {
       setRestaurantData(requiredSwiggyCard)
+      setRestaurandDataUnderDisplay(requiredSwiggyCard)
     }
   }
 
-  if (restaurantData.length === 0) {
-    return <Shimmer />
+  const handleSearchTextChange = e => {
+    setSearchText(e.target.value)
   }
 
-  return (
+  const handleSearch = () => {
+    const tempResArr = restaurantData.filter(res =>
+      res.info.name.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
+    )
+    if (searchText === '') {
+      setRestaurandDataUnderDisplay([...restaurantData])
+    } else {
+      setRestaurandDataUnderDisplay([...tempResArr])
+    }
+  }
+
+  /*
+    Condtional rendering
+  */
+
+  return restaurantData.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className='body-main'>
       <div className='search'>
-        Search
-        <button
-          className='filter-btn'
-          onClick={() => {
-            setRestaurantData(
-              restaurantData.filter(res => res.info.avgRating > 4.3)
-            )
+        <input
+          className='search-input'
+          type='text'
+          placeholder='type something to search'
+          value={searchText}
+          onChange={e => {
+            handleSearchTextChange(e)
           }}
-        >
-          Top Rated Restaurant
+        />
+        <button className='search-btn' onClick={() => handleSearch()}>
+          Search
         </button>
       </div>
 
       <div className='res-container'>
-        {restaurantData.map(res => (
+        {restaurandDataUnderDisplay.map(res => (
           <RestaurantCard key={res.info.id} restuarantData={res} />
         ))}
       </div>
