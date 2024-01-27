@@ -161,6 +161,21 @@ const AppLayout = () => {
   )
 }
 
+/*
+  Some knowleadge on routing.
+  There can be 2 types routing 1. Server side routing and 2. Client side routing.
+
+  1. Server side routing ->
+    It is the traditional method for handling routes in the web applications.
+    When a user clicks on a link, server detects the new URL (Ex: anchor tag).
+    And fetchs data from that URL by making a Http call.
+
+  2. Client side rendering ->
+    This is the new way of outing made possible by single page applications.
+    Here user navigates between components, without full rerendering of the page.
+    This is done by manipulating the DOM.
+*/
+
 const appRouter = createBrowserRouter([
   {
     path: '/',
