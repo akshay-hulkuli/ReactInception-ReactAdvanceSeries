@@ -56,6 +56,11 @@
     justify-content: flex-start;
 }
 
+.link-style {
+    text-decoration:none;
+    color: inherit
+}
+
 .res-card {
     width: 260px;
     margin: 20px 20px;

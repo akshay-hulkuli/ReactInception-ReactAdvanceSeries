@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import RestaurantCard from './RestaurantCard'
 import Shimmer from './Shimmer'
 
@@ -95,7 +96,7 @@ const Body = () => {
 
       <div className='res-container'>
         {restaurandDataUnderDisplay.map(res => (
-          <RestaurantCard key={res.info.id} restuarantData={res} />
+          <Link className='link-style' to = {"/restaurant/"+res.info.id }><RestaurantCard key={res.info.id} restuarantData={res} /></Link>
         ))}
       </div>
     </div>
