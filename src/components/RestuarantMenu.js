@@ -47,7 +47,7 @@ const RestaurantMenu = () => {
         </div>
       </div>
 
-      <div>
+      <div className='res-menu-res-data'>
         {menuInfo.map(card => {
             return <RestaurantRecipe recipeInfo={card} />
         })}
