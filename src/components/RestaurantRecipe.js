@@ -4,7 +4,7 @@ import nonVegIcon from '../assets/non-veg-icon.png'
 import { cloudinaryCDN } from '../utils/constants'
 
 const RestaurantRecipe = props => {
-  const [isAccordianOpen, setIsAccordianOpen] = useState(false)
+  const [isAccordianOpen, setIsAccordianOpen] = useState(true)
   const { recipeInfo } = props
   console.log(recipeInfo)
   return (

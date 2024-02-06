@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import useOnlineStatus from '../utils/useOnlineStatus'
 import RestaurantCard from './RestaurantCard'
 import Shimmer from './Shimmer'
 
@@ -26,6 +27,8 @@ const Body = () => {
     []
   )
   const [searchText, setSearchText] = useState('')
+  const onlineStatus = useOnlineStatus()
+
   useEffect(() => {
     fetchData()
   }, [])
@@ -77,7 +80,7 @@ const Body = () => {
 
   return restaurantData.length === 0 ? (
     <Shimmer />
-  ) : (
+  ) : onlineStatus ? (
     <div className='body-main'>
       <div className='search'>
         <input
@@ -96,10 +99,14 @@ const Body = () => {
 
       <div className='res-container'>
         {restaurandDataUnderDisplay.map(res => (
-          <Link className='link-style' to = {"/restaurant/"+res.info.id }><RestaurantCard key={res.info.id} restuarantData={res} /></Link>
+          <Link className='link-style' to={'/restaurant/' + res.info.id}>
+            <RestaurantCard key={res.info.id} restuarantData={res} />
+          </Link>
         ))}
       </div>
     </div>
+  ) : (
+    <h3>You are offline check internet</h3>
   )
 }
 

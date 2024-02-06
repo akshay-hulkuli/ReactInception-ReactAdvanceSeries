@@ -258,3 +258,8 @@
     position: relative;
     border-radius: 6px;
 }
+
+.user-card {
+    padding: 10px;
+    border: black solid 1px;
+}
