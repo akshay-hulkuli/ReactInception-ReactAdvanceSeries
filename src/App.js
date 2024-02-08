@@ -165,9 +165,14 @@ const About = lazy(() => import('./components/About'))
     * This will cause slowness in loading the UI.
     * Inorder to avoid this we can use of chunking.
 */
+
+/*
+  Tailwind css adds only css classes that are needed. Example if I add p-4 in 10 files then at the end tailwind css adds only one p-4 css class.
+  Makes css of the application very lightweight
+*/
 const AppLayout = () => {
   return (
-    <div className='app'>
+    <div className='bg-neutral-200 min-h-lvh'>
       <Header />
       <Outlet />
     </div>

@@ -36,9 +36,9 @@ const Header = () => {
   }, [])
 
   return (
-    <div className='flex justify-between items-center border-solid border-2 border-black rounded mx-1 my-2 shadow-lg'>
-      <div className='w-24'>
-        <img className='logo' src={foodAppLogo} />
+    <div className='flex justify-between items-center border-solid border-2 border-black rounded mx-1 my-2 shadow-lg bg-zinc-800 text-white text-lg py-2'>
+      <div className='w-16 ml-2'>
+        <img className='rounded-full' src={foodAppLogo} />
       </div>
       <div className=''>
         <ul className='flex'>

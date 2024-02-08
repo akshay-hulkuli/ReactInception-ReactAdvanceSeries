@@ -81,8 +81,8 @@ const Body = () => {
   return restaurantData.length === 0 ? (
     <Shimmer />
   ) : onlineStatus ? (
-    <div className='flex flex-col'>
-      <div className='search mx-6'>
+    <div className='flex flex-col items-end'>
+      <div className='search mx-6 mt-6'>
         <input
           className='border-solid border-2 rounded-lg border-gray-300 px-2 py-1 w-52'
           type='text'
