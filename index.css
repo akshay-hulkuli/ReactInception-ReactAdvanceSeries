@@ -1,4 +1,7 @@
-.header {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* .header {
     display: flex;
     justify-content: space-between;
     border: 1px solid black;
@@ -188,7 +191,7 @@
 
 .res-recipe-accordian {
     display: flex;
-    /* margin: 20px 25%; */
+    /* margin: 20px 25%; 
     padding: 0px 30px;
     justify-content: space-between;
     align-items: center;
@@ -262,4 +265,4 @@
 .user-card {
     padding: 10px;
     border: black solid 1px;
-}
+} */

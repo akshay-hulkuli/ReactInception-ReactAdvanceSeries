@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { lazy, Suspense } from 'react'
 import ReactDOM from 'react-dom/client'
 import Body from './components/Body'
 import Header from './components/Header'
-import About from "./components/About"
+// import About from './components/About'
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import ContactUs from './components/ContactUs'
 import Error from './components/Error'
 import RestaurantMenu from './components/RestuarantMenu'
+// import Grocery from './components/Grocery'
+
+const Grocery = lazy(() => import('./components/Grocery'))
+const About = lazy(() => import('./components/About'))
 
 // ------------------------****************************************---------------------------
 
@@ -153,6 +157,14 @@ import RestaurantMenu from './components/RestuarantMenu'
  *  - Contacts
  *
  */
+
+/*
+  Chunking or Code splitting or Dynamic Bundling or lazy loading
+    * Usually the bundlers create only one bundle for the given application.
+    * As the application size increases the size of the bundle js file also increases a lot.
+    * This will cause slowness in loading the UI.
+    * Inorder to avoid this we can use of chunking.
+*/
 const AppLayout = () => {
   return (
     <div className='app'>
@@ -183,19 +195,31 @@ const appRouter = createBrowserRouter([
     element: <AppLayout />,
     children: [
       {
-        path: "/",
-        element: <Body/>
-      }, 
-      {
-        path:"/about",
-        element: <About/>
+        path: '/',
+        element: <Body />
       },
       {
-        path: "/contact",
-        element: <ContactUs/>
+        path: '/about',
+        element: (
+          <Suspense fallback={<h2>Loading</h2>}>
+            <About />
+          </Suspense>
+        )
       },
       {
-        path:"/restaurant/:resId",
+        path: '/contact',
+        element: <ContactUs />
+      },
+      {
+        path: '/grocery',
+        element: (
+          <Suspense fallback={<h2>Grocery is being loaded</h2>}>
+            <Grocery />
+          </Suspense>
+        )
+      },
+      {
+        path: '/restaurant/:resId',
         element: <RestaurantMenu />
       }
     ],

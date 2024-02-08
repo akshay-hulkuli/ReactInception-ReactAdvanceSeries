@@ -81,10 +81,10 @@ const Body = () => {
   return restaurantData.length === 0 ? (
     <Shimmer />
   ) : onlineStatus ? (
-    <div className='body-main'>
-      <div className='search'>
+    <div className='flex flex-col'>
+      <div className='search mx-6'>
         <input
-          className='search-input'
+          className='border-solid border-2 rounded-lg border-gray-300 px-2 py-1 w-52'
           type='text'
           placeholder='type something to search'
           value={searchText}
@@ -92,12 +92,12 @@ const Body = () => {
             handleSearchTextChange(e)
           }}
         />
-        <button className='search-btn' onClick={() => handleSearch()}>
+        <button className='bg-orange-500 border-solid border-2 rounded-lg border-gray-700 mx-6 w-20' onClick={() => handleSearch()}>
           Search
         </button>
       </div>
 
-      <div className='res-container'>
+      <div className='flex flex-wrap'>
         {restaurandDataUnderDisplay.map(res => (
           <Link className='link-style' to={'/restaurant/' + res.info.id}>
             <RestaurantCard key={res.info.id} restuarantData={res} />

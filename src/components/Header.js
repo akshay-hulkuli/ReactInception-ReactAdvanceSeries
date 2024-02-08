@@ -36,23 +36,26 @@ const Header = () => {
   }, [])
 
   return (
-    <div className='header'>
-      <div className='logo-container'>
+    <div className='flex justify-between items-center border-solid border-2 border-black rounded mx-1 my-2 shadow-lg'>
+      <div className='w-24'>
         <img className='logo' src={foodAppLogo} />
       </div>
-      <div className='nav-container'>
-        <ul>
-          <li>
+      <div className=''>
+        <ul className='flex'>
+          <li className='px-6'>
             <Link to='/'>Home</Link>
           </li>
-          <li>
+          <li className='px-6'>
             <Link to='/about'>About us</Link>
           </li>
-          <li>
+          <li className='px-6'>
             <Link to='/contact'>Contact us</Link>
           </li>
-          <li>Cart</li>
-          <button className='login' onClick={() => handleLogInLogOut()}>
+          <li className='px-6'>
+            <Link to='/grocery'>Grocery</Link>
+          </li>
+          <li className='px-6'>Cart</li>
+          <button className={'mx-4 px-4 border-solid border-2 rounded border-green-700'} onClick={() => handleLogInLogOut()}>
             {hasLoggedIn ? 'LogOut' : 'Login'}
           </button>
         </ul>
