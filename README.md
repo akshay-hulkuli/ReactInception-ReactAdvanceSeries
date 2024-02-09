@@ -17,3 +17,6 @@
 - HTTPs
 - Tree shaking - remove used code.
 - npx parcel build index.html (This command builds production ready code. 3 files will be generated one JS, one CSS and one HTML files)
+
+# Higher Order components
+- These are the functions that takes a component and return another component

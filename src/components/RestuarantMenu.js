@@ -30,26 +30,9 @@ const RestaurantMenu = () => {
 
       <div className='res-menu-res-data'>
         {menuInfo.map(card => {
-          return <RestaurantRecipe recipeInfo={card} />
+          return <RestaurantRecipe key={card?.card?.card?.title} recipeInfo={card} />
         })}
       </div>
-      {/* <ul>
-        {menuInfo.map(card => (
-          <li key={card?.card?.card?.title}>
-            <h3>{card?.card?.card?.title}</h3>
-            <ul>
-              {card?.card?.card?.itemCards?.map(itemCard => {
-                return (
-                  <li key={itemCard?.card?.info?.id}>
-                    {itemCard?.card?.info?.name} -
-                    {itemCard?.card?.info.price / 100}
-                  </li>
-                )
-              })}
-            </ul>
-          </li>
-        ))}
-      </ul> */}
     </div>
   )
 }

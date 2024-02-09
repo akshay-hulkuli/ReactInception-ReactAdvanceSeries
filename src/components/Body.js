@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import useOnlineStatus from '../utils/useOnlineStatus'
-import RestaurantCard from './RestaurantCard'
+import RestaurantCard, {withPromtedLable} from './RestaurantCard'
 import Shimmer from './Shimmer'
 
 const Body = () => {
@@ -54,6 +54,7 @@ const Body = () => {
       card => card?.card?.card?.id === 'restaurant_grid_listing'
     )?.card?.card?.gridElements?.infoWithStyle?.restaurants
     if (requiredSwiggyCard && requiredSwiggyCard?.length > 0) {
+      console.log(requiredSwiggyCard);
       setRestaurantData(requiredSwiggyCard)
       setRestaurandDataUnderDisplay(requiredSwiggyCard)
     }
@@ -73,6 +74,8 @@ const Body = () => {
       setRestaurandDataUnderDisplay([...tempResArr])
     }
   }
+
+  const RestaurantCardPromoted = withPromtedLable(RestaurantCard);
 
   /*
     Condtional rendering
@@ -100,7 +103,7 @@ const Body = () => {
       <div className='flex flex-wrap'>
         {restaurandDataUnderDisplay.map(res => (
           <Link className='link-style' to={'/restaurant/' + res.info.id}>
-            <RestaurantCard key={res.info.id} restuarantData={res} />
+            {res?.info?.promoted ? <RestaurantCardPromoted key={res.info.id} restuarantData={res}/> : <RestaurantCard key={res.info.id} restuarantData={res} />}
           </Link>
         ))}
       </div>

@@ -8,16 +8,16 @@ const RestaurantRecipe = props => {
   const { recipeInfo } = props
   console.log(recipeInfo)
   return (
-    <div className='recipe-main'>
-      <div className='res-recipe-accordian'>
-        <h2>
+    <div className='mb-[20px] bg-white'>
+      <div className='flex py-[20px] mx-16 justify-between items-center'>
+        <h2 className='font-bold'>
           {props?.recipeInfo?.card?.card?.title +
             ' (' +
             props?.recipeInfo?.card?.card?.itemCards?.length +
             ')'}
         </h2>
         <button
-          className='accordian-button'
+          className='border-none bg-white text-3xl mt-[-5px]'
           onClick={() => {
             setIsAccordianOpen(!isAccordianOpen)
           }}
@@ -25,7 +25,7 @@ const RestaurantRecipe = props => {
           &#8597;{' '}
         </button>
       </div>
-      <div className={isAccordianOpen ? '' : 'hide-content'}>
+      <div className={isAccordianOpen ? '' : 'hidden'}>
         {recipeInfo?.card?.card?.itemCards?.map(item => {
           return (
             <div key={item?.card?.info?.id} className='recipe-item'>
