@@ -9,6 +9,21 @@ const RestaurantMenu = () => {
   const { resId } = useParams()
   const { currentRestaurantData, resInfo, menuInfo } = useRestuarantMenu(resId)
 
+  const [showBool, setShowBool] = useState([])
+
+  useEffect(() => {
+    let tempArr = []
+    menuInfo.forEach(m => tempArr.push(false))
+    setShowBool([...tempArr])
+  }, [menuInfo])
+
+  const makeCurAccordianShowAndOthersNot = index => {
+    let tempArr = showBool
+    let bool = !showBool[index]
+    tempArr = tempArr.map((b, i) => (i === index ? bool : bool ? false : b))
+    setShowBool([...tempArr])
+  }
+
   return currentRestaurantData === null ? (
     <Shimmer />
   ) : (
@@ -29,8 +44,20 @@ const RestaurantMenu = () => {
       </div>
 
       <div className='res-menu-res-data'>
-        {menuInfo.map(card => {
-          return <RestaurantRecipe key={card?.card?.card?.title} recipeInfo={card} />
+        {menuInfo.map((card, index) => {
+          return (
+            /*
+              This is a controlled component as this is controlled from the parent.
+              We are controlling whether show items or not
+            */
+            <RestaurantRecipe
+              key={card?.card?.card?.title}
+              recipeInfo={card}
+              index={index}
+              showAccordian={showBool?.[index] ? showBool?.[index] : false}
+              makeCurAccordianShowAndOthersNot={makeCurAccordianShowAndOthersNot}
+            />
+          )
         })}
       </div>
     </div>

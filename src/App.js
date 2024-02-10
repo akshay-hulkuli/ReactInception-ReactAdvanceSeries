@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react'
+import React, { lazy, Suspense, useEffect, useState } from 'react'
 import ReactDOM from 'react-dom/client'
 import Body from './components/Body'
 import Header from './components/Header'
@@ -7,6 +7,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import ContactUs from './components/ContactUs'
 import Error from './components/Error'
 import RestaurantMenu from './components/RestuarantMenu'
+import UserContext from './utils/UserContext'
 // import Grocery from './components/Grocery'
 
 const Grocery = lazy(() => import('./components/Grocery'))
@@ -171,10 +172,22 @@ const About = lazy(() => import('./components/About'))
   Makes css of the application very lightweight
 */
 const AppLayout = () => {
+  const [userName, setUserName] = useState()
+
+  useEffect(() => {
+    const data = {
+      name: 'Akshay'
+    }
+    setUserName(data.name)
+  }, [])
   return (
     <div className='bg-neutral-200 min-h-lvh'>
-      <Header />
-      <Outlet />
+      <UserContext.Provider value={{loggedInUser: userName, setUserName}}>
+        <UserContext.Provider value={{loggedInUser: "changed Name"}}>
+          <Header />
+        </UserContext.Provider>
+        <Outlet />
+      </UserContext.Provider>
     </div>
   )
 }

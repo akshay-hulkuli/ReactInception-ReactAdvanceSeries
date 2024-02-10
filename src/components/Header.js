@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import foodAppLogo from '../assets/foodAppLogo.jpg'
+import UserContext from '../utils/UserContext'
 
 const Header = () => {
   /*
@@ -19,6 +20,8 @@ const Header = () => {
   const handleLogInLogOut = () => {
     setHasLoggedIn(!hasLoggedIn)
   }
+
+  const {loggedInUser} = useContext(UserContext);
 
   /*
     A useEffect takes 2 arguments. 1. Callback function and 2. dependecy Array.
@@ -58,6 +61,7 @@ const Header = () => {
           <button className={'mx-4 px-4 border-solid border-2 rounded border-green-700'} onClick={() => handleLogInLogOut()}>
             {hasLoggedIn ? 'LogOut' : 'Login'}
           </button>
+          <li className='px-6'>{loggedInUser}</li>
         </ul>
       </div>
     </div>

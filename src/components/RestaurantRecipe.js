@@ -4,8 +4,7 @@ import nonVegIcon from '../assets/non-veg-icon.png'
 import { cloudinaryCDN } from '../utils/constants'
 
 const RestaurantRecipe = props => {
-  const [isAccordianOpen, setIsAccordianOpen] = useState(true)
-  const { recipeInfo } = props
+  const { recipeInfo, makeCurAccordianShowAndOthersNot , showAccordian, index } = props
   console.log(recipeInfo)
   return (
     <div className='mb-[20px] bg-white'>
@@ -19,13 +18,13 @@ const RestaurantRecipe = props => {
         <button
           className='border-none bg-white text-3xl mt-[-5px]'
           onClick={() => {
-            setIsAccordianOpen(!isAccordianOpen)
+            makeCurAccordianShowAndOthersNot(index);
           }}
         >
           &#8597;{' '}
         </button>
       </div>
-      <div className={isAccordianOpen ? '' : 'hidden'}>
+      <div className={showAccordian ? '' : 'hidden'}>
         {recipeInfo?.card?.card?.itemCards?.map(item => {
           return (
             <div key={item?.card?.info?.id} className='recipe-item'>

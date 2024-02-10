@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import useOnlineStatus from '../utils/useOnlineStatus'
 import RestaurantCard, {withPromtedLable} from './RestaurantCard'
 import Shimmer from './Shimmer'
+import UserContext from '../utils/UserContext'
 
 const Body = () => {
   /*
@@ -32,6 +33,9 @@ const Body = () => {
   useEffect(() => {
     fetchData()
   }, [])
+
+  const data = useContext(UserContext);
+  console.log(data);
 
   /*
     CORS is the standard mechanism used to share resource between 2 entries present across differenet origins.
@@ -98,6 +102,12 @@ const Body = () => {
         <button className='bg-orange-500 border-solid border-2 rounded-lg border-gray-700 mx-6 w-20' onClick={() => handleSearch()}>
           Search
         </button>
+        <input 
+          className='border-solid border-2 rounded-lg border-black'
+          type='text'
+          value= {data?.loggedInUser}
+          onChange={(e) => {data.setUserName(e.target.value)}}
+        />
       </div>
 
       <div className='flex flex-wrap'>
