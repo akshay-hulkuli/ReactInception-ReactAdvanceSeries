@@ -1,6 +1,8 @@
 import { useEffect, useState, useContext } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import foodAppLogo from '../assets/foodAppLogo.jpg'
+import appStore from '../utils/appStore'
 import UserContext from '../utils/UserContext'
 
 const Header = () => {
@@ -22,6 +24,9 @@ const Header = () => {
   }
 
   const {loggedInUser} = useContext(UserContext);
+
+  // We are subscribing to the store using a selector
+  const cartItems = useSelector((store) => store.cart.items);
 
   /*
     A useEffect takes 2 arguments. 1. Callback function and 2. dependecy Array.
@@ -57,7 +62,7 @@ const Header = () => {
           <li className='px-6'>
             <Link to='/grocery'>Grocery</Link>
           </li>
-          <li className='px-6'>Cart</li>
+          <li className='px-6'><Link to='/cart'>Cart {"(" + cartItems.length + ")"}</Link></li>
           <button className={'mx-4 px-4 border-solid border-2 rounded border-green-700'} onClick={() => handleLogInLogOut()}>
             {hasLoggedIn ? 'LogOut' : 'Login'}
           </button>
