@@ -2,7 +2,9 @@ import { useState } from 'react'
 import Item from './Item'
 
 const RestaurantRecipe = props => {
-  const { recipeInfo, makeCurAccordianShowAndOthersNot , showAccordian, index } = props
+  const { recipeInfo, makeCurAccordianShowAndOthersNot , showAccordian, index, key } = props
+
+  console.log('accordian-button -' + key);
 
   return (
     <div className='mb-[20px] bg-white'>
@@ -14,6 +16,7 @@ const RestaurantRecipe = props => {
             ')'}
         </h2>
         <button
+          data-testid={'accordian-button -' + key}
           className='border-none bg-white text-3xl mt-[-5px]'
           onClick={() => {
             makeCurAccordianShowAndOthersNot(index);

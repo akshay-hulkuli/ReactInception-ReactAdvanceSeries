@@ -2,8 +2,44 @@ import { render, screen } from "@testing-library/react"
 import ContactUs from "../components/ContactUs"
 import "@testing-library/jest-dom"
 
+// beforeAll(()=> {
+//     console.log(beforeAll)
+// })
+
+// beforeEach(()=> {
+//     console.log(beforeEach)
+// })
+
+// afterAll(()=> {
+//     console.log(afterAll)
+// })
+
+// afterEach(()=> {
+//     console.log(afterEach)
+// })
 
 describe('Contact us', () => {
+
+    beforeAll(()=> {
+        console.log(beforeAll)
+    })
+
+    beforeAll(()=> {
+        console.log(beforeAll)
+    })
+
+    beforeEach(()=> {
+        console.log(beforeEach)
+    })
+
+    afterAll(()=> {
+        console.log(afterAll)
+    })
+
+    afterEach(()=> {
+        console.log(afterEach)
+    })
+
     test("Should load contact us component", ()=> {
         render(<ContactUs />)
     
@@ -34,3 +70,29 @@ describe('Contact us', () => {
         expect(inputBoxes.length).toBe(2);
     }) 
 });
+
+
+// describe("dummy", ()=> {
+//     beforeAll(()=> {
+//         console.log(beforeAll)
+//     })
+
+//     beforeEach(()=> {
+//         console.log(beforeEach)
+//     })
+
+//     afterAll(()=> {
+//         console.log(afterAll)
+//     })
+
+//     afterEach(()=> {
+//         console.log(afterEach)
+//     })
+
+//     test("Should load contact us component", ()=> {
+//         render(<ContactUs />)
+    
+//         const heading  = screen.getByRole("heading");
+//         expect(heading).toBeInTheDocument();
+//     })
+// })

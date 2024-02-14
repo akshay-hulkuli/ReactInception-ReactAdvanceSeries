@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import foodAppLogo from '../assets/foodAppLogo.jpg'
+// import foodAppLogo from '../assets/foodAppLogo.jpg'
 import appStore from '../utils/appStore'
 import UserContext from '../utils/UserContext'
 
@@ -46,7 +46,8 @@ const Header = () => {
   return (
     <div className='flex justify-between items-center border-solid border-2 border-black rounded mx-1 my-2 shadow-lg bg-zinc-800 text-white text-lg py-2'>
       <div className='w-16 ml-2'>
-        <img className='rounded-full' src={foodAppLogo} />
+        <img className='rounded-full' src={'https://img.freepik.com/free-vector/delivery-logo-template_23-2147880262.jpg?w=826&t=st=1707887805~exp=1707888405~hmac=ef755b44bd951b44509588d5a7638ff8a8da98714178c3a3e8737c86e518025a'} />
+        {/* <img className='rounded-full' src={foodAppLogo}/> */}
       </div>
       <div className=''>
         <ul className='flex'>

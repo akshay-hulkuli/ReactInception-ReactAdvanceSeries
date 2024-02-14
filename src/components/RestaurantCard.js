@@ -5,7 +5,7 @@ const RestaurantCard = props => {
   const { cloudinaryImageId, name, cuisines, avgRating, sla } =
     restuarantData?.info
   return (
-    <div className='w-64 h-96 m-6 border-solid border-2 rounded-lg border-gray-700 bg-gray-200 shadow-xl hover:bg-gray-400'>
+    <div data-testid='resCard' className='w-64 h-96 m-6 border-solid border-2 rounded-lg border-gray-700 bg-gray-200 shadow-xl hover:bg-gray-400'>
       <img
         className='h-52 w-64 res-logo'
         src={cloudinaryCDN + cloudinaryImageId}

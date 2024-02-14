@@ -58,7 +58,7 @@ const Body = () => {
       card => card?.card?.card?.id === 'restaurant_grid_listing'
     )?.card?.card?.gridElements?.infoWithStyle?.restaurants
     if (requiredSwiggyCard && requiredSwiggyCard?.length > 0) {
-      console.log(requiredSwiggyCard);
+      // console.log(requiredSwiggyCard);
       setRestaurantData(requiredSwiggyCard)
       setRestaurandDataUnderDisplay(requiredSwiggyCard)
     }
@@ -93,6 +93,7 @@ const Body = () => {
         <input
           className='border-solid border-2 rounded-lg border-gray-300 px-2 py-1 w-52'
           type='text'
+          data-testid='searchInput'
           placeholder='type something to search'
           value={searchText}
           onChange={e => {
@@ -112,7 +113,7 @@ const Body = () => {
 
       <div className='flex flex-wrap'>
         {restaurandDataUnderDisplay.map(res => (
-          <Link className='link-style' to={'/restaurant/' + res.info.id}>
+          <Link key={res.info.id} className='link-style' to={'/restaurant/' + res.info.id}>
             {res?.info?.promoted ? <RestaurantCardPromoted key={res.info.id} restuarantData={res}/> : <RestaurantCard key={res.info.id} restuarantData={res} />}
           </Link>
         ))}
