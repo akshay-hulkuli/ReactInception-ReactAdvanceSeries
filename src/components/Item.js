@@ -25,7 +25,7 @@ const Item = ({ item, isAddButtoNeeded }) => {
             }
           />
 
-          <span className='recipe-header'>{item?.card?.info?.name}</span>
+          <span data-testid='recipe-header' className='recipe-header'>{item?.card?.info?.name}</span>
           <span className='recipe-rate'>
             {'$ ' + item?.card?.info?.price / 100}
           </span>
@@ -41,6 +41,7 @@ const Item = ({ item, isAddButtoNeeded }) => {
           {isAddButtoNeeded && (
             <button
               className='recipe-add-button'
+              data-testid={'item-add-' + item?.card?.info?.name}
               onClick={() => handleAddItem(item)}
             >
               ADD
